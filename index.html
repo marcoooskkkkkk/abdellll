@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will You Be My Valentine, Mouna?</title>
+    <style>
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: Arial, sans-serif;
+            background-color: #ffcccb; /* Soft pink background */
+            background-image: url('https://www.transparenttextures.com/patterns/pink-floral.png'); /* Pink floral pattern */
+            background-size: cover;
+            background-position: center;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
+            position: relative;
+        }
+
+        h1 {
+            color: #ff1493; /* Deep pink */
+            font-size: 3rem;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .heart {
+            color: #1e90ff; /* Blue Heart */
+            font-size: 3rem;
+            margin-left: 10px;
+        }
+
+        .candle-container {
+            display: flex;
+            justify-content: center;
+            align-items: flex-end;
+            position: relative;
+            height: 200px;
+        }
+
+        .candle {
+            width: 20px;
+            height: 100px;
+            background: linear-gradient(to bottom, #fff, #f0f0f0);
+            border-radius: 10px 10px 0 0;
+            position: relative;
+            margin: 0 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        }
+
+        .flame {
+            width: 10px;
+            height: 30px;
+            background: linear-gradient(to bottom, #1e90ff, #00bfff, #4169e1); /* Blue flame */
+            border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+            position: absolute;
+            top: -35px; /* Space between flame and candle */
+            left: 50%;
+            transform: translateX(-50%);
+            filter: blur(2px);
+            animation: flicker 0.1s infinite alternate;
+        }
+
+        @keyframes flicker {
+            0% {
+                transform: translateX(-50%) scale(1);
+            }
+            100% {
+                transform: translateX(-50%) scale(1.1);
+            }
+        }
+
+        .sparks {
+            position: absolute;
+            top: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 10px;
+            height: 10px;
+        }
+
+        .spark {
+            width: 2px;
+            height: 2px;
+            background: #1e90ff; /* Blue sparks */
+            border-radius: 50%;
+            position: absolute;
+            animation: spark 1s infinite ease-out;
+        }
+
+        @keyframes spark {
+            0% {
+                transform: translateY(0) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-20px) scale(0.5);
+                opacity: 0;
+            }
+        }
+
+        .buttons {
+            margin-top: 20px;
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 1.2rem;
+            margin: 10px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        #yesButton {
+            background-color: #32cd32; /* Lime green */
+            color: white;
+        }
+
+        #noButton {
+            background-color: #ff4500; /* Orange red */
+            color: white;
+        }
+
+        .message {
+            font-size: 1.5rem;
+            color: #ff1493; /* Deep pink */
+            text-align: center;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Will You Be My Valentine, Mouna?<span class="heart">❤️</span></h1>
+
+    <div class="candle-container">
+        <!-- Multiple Candles with Blue Flames -->
+        <div class="candle">
+            <div class="flame"></div>
+            <div class="sparks">
+                <div class="spark" style="left: 0; animation-delay: 0s;"></div>
+                <div class="spark" style="left: 5px; animation-delay: 0.2s;"></div>
+                <div class="spark" style="left: -5px; animation-delay: 0.4s;"></div>
+            </div>
+        </div>
+        <div class="candle">
+            <div class="flame"></div>
+            <div class="sparks">
+                <div class="spark" style="left: 0; animation-delay: 0s;"></div>
+                <div class="spark" style="left: 5px; animation-delay: 0.2s;"></div>
+                <div class="spark" style="left: -5px; animation-delay: 0.4s;"></div>
+            </div>
+        </div>
+        <div class="candle">
+            <div class="flame"></div>
+            <div class="sparks">
+                <div class="spark" style="left: 0; animation-delay: 0s;"></div>
+                <div class="spark" style="left: 5px; animation-delay: 0.2s;"></div>
+                <div class="spark" style="left: -5px; animation-delay: 0.4s;"></div>
+            </div>
+        </div>
+        <div class="candle">
+            <div class="flame"></div>
+            <div class="sparks">
+                <div class="spark" style="left: 0; animation-delay: 0s;"></div>
+                <div class="spark" style="left: 5px; animation-delay: 0.2s;"></div>
+                <div class="spark" style="left: -5px; animation-delay: 0.4s;"></div>
+            </div>
+        </div>
+        <div class="candle">
+            <div class="flame"></div>
+            <div class="sparks">
+                <div class="spark" style="left: 0; animation-delay: 0s;"></div>
+                <div class="spark" style="left: 5px; animation-delay: 0.2s;"></div>
+                <div class="spark" style="left: -5px; animation-delay: 0.4s;"></div>
+            </div>
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button id="yesButton">Yes</button>
+        <button id="noButton">No</button>
+    </div>
+
+    <div id="messageContainer" class="message"></div>
+
+    <!-- Confetti Library -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+    <!-- Background Music -->
+    <audio id="backgroundMusic" loop>
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <!-- Firecracker Sound -->
+    <audio id="firecrackerSound">
+        <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg"> <!-- Replace with actual firecracker sound -->
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Message Handling
+        const messageContainer = document.getElementById('messageContainer');
+        const noButton = document.getElementById('noButton');
+        const yesButton = document.getElementById('yesButton');
+        const backgroundMusic = document.getElementById('backgroundMusic');
+        const firecrackerSound = document.getElementById('firecrackerSound');
+        let noClickCount = 0;
+
+        // Button Actions
+        yesButton.addEventListener('click', () => {
+            messageContainer.textContent = "Good Girl!";
+            // Trigger confetti animation
+            confetti({
+                particleCount: 100,
+                spread: 70,
+                origin: { y: 0.6 }
+            });
+            // Stop background music and play firecracker sound
+            backgroundMusic.pause();
+            firecrackerSound.play();
+        });
+
+        noButton.addEventListener('click', () => {
+            noClickCount++;
+            if (noClickCount === 1) {
+                noButton.textContent = "Are you sure?";
+            } else if (noClickCount === 2) {
+                noButton.textContent = "Baraka mn lbsala!";
+            } else {
+                noButton.style.display = 'none';
+                yesButton.style.transform = 'scale(1.5)';
+                messageContainer.textContent = "L9lawi!";
+            }
+        });
+    </script>
+</body>
+</html>
